@@ -26,7 +26,7 @@ class TopMenu extends Component {
 
 
              <Menu inverted>
-                 <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
+                 <Menu.Item as={Link} to='/' name='home' active={activeItem === 'home'} >
                     <Icon name='home'/>
                     Home
                  </Menu.Item>
@@ -38,7 +38,7 @@ class TopMenu extends Component {
                     <Icon name='world' />
                     Community
                  </Menu.Item>
-                 <Menu.Item as={Link} to='/accounts' name='accounts' active={activeItem === 'accounts'} onClick={this.handleItemClick}>
+                 <Menu.Item as={Link} to='/accounts' name='accounts' active={activeItem === 'accounts'}>
                      <Icon name='university' />
                      Accounts
                  </Menu.Item>

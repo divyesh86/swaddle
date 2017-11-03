@@ -7,6 +7,18 @@ let axiosInstance = axios.create({
 
 export default {
 
+
+    insertAccounts: async function(token) {
+        console.log("token >>>>>"+token);
+        return await axiosInstance.post('/insertAccounts', {token});
+    },
+
+    getAccounts: async function() {
+        return await axiosInstance.get('/getAccounts');
+    },
+
+
+
     postNote: async function(note) {
         return await axiosInstance.post("/postComment", {note});
     },
@@ -23,7 +35,7 @@ export default {
 
 
     //Get transactions
-    items: async function() {
+    getTransactions: async function() {
         return await axiosInstance.get("/getTransactions");
     }
 

@@ -21,7 +21,7 @@ import {
 } from 'semantic-ui-react'
 import _ from 'lodash'
 
-import image4 from '../../static/images/matthew.png';
+import image4 from '../../static/images/divyesh_motiwalla.jpg';
 import bofa from '../../static/images/bofa.png';
 import SideComment from '../sideComment';
 

@@ -1,10 +1,6 @@
 const Transaction = require("../models/transaction");
 const utils = require("../utils/jsonToString");
 const bankService = require("../services/bankService");
-const messageService = require("../services/messageService");
-let config = require('../config/twilio');
-let moment = require('moment');
-let numeral = require('numeral');
 
 
 let findAll = async () => {
@@ -108,52 +104,18 @@ let insertTransactionList = async(transactionList) => {
 };
 
 
-let fetchAndInsert = async(noOfDays) => {
+let fetchAndInsert = async(noOfDays, accessToken) => {
 
     try{
-        let response = await bankService.getTransactions(noOfDays);
+        let response = await bankService.getTransactions(noOfDays, accessToken);
         return await insertTransactionList(response.transactions);
+
     }catch (err){
         return ({errorMsg: err.message});
     }
 };
 
 
-let fetchLastTransaction = async() => {
-
-    try{
-        let response = await bankService.getTransactions(1);
-
-        // for(let i = 0; i < response.transactions.length; i++){
-        //     try{
-        //         let transaction = response.transactions[i];
-        //         let result = await findByTransaction(transaction.transaction_id);
-        //
-        //         if(result.length === 0) {
-        //
-        //             //console.log(transaction);
-        //             let messageBody = "Amount: "+numeral(transaction.amount).format('0.00') + "\n"
-        //                 + "Date: " + moment(transaction.date).format('LL') + "\n"
-        //                 + "Name: " + transaction.name;
-        //
-        //             let sendMessageResult = await messageService.sendMessage(messageBody, config.TO);
-        //             //console.log(sendMessageResult);
-        //
-        //             console.log("inserting result");
-        //             let insertResult = await insertTransaction(transaction);
-        //             console.log(insertResult);
-        //         }
-        //     }catch (err){
-        //         console.error(err);
-        //     }
-        //
-        //
-        // }
-    }catch(err){
-        return ({errorMsg: err.message})
-    }
-
-}
 
 
-module.exports = {fetchAndInsert, findAll, fetchLastTransaction};
+module.exports = {fetchAndInsert, findAll};

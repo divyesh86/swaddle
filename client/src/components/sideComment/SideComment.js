@@ -12,7 +12,7 @@ class SideComment extends Component {
 
         return (
 
-            <Comment.Group size='medium'>
+            <Comment.Group size='small'>
                 <Comment>
                     <Comment.Avatar src={this.props.image} />
                     <Comment.Content>
