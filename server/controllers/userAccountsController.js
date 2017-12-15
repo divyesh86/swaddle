@@ -66,7 +66,7 @@ let addNewAccountData = async(publicToken) => {
 
 
         let addNewAccounts =  await insertNewAccounts(publicToken);
-        let addTransactions = await fetchTransactions(30, addNewAccounts.accessToken, 60000);
+        let addTransactions = await fetchTransactions(30, addNewAccounts.accessToken, 10000);
 
         return ({accountsAdded: addNewAccounts.accountsAdded});
 

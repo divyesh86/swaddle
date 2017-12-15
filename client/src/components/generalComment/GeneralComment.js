@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Comment, Card, Image } from 'semantic-ui-react';
+import { Comment, Card, Image, Icon, Segment} from 'semantic-ui-react';
 let moment = require('moment');
 let numeral = require('numeral');
 let randomInt = require('random-int');
@@ -83,10 +83,13 @@ class GeneralComment extends Component {
                 </Card.Meta>
                 <Card.Meta>
                     Fraud Risk Level : <b>{risk}</b>
+                    <Icon name="external share"/>
                 </Card.Meta>
                 <Card.Meta>
                     Date: <b>{moment(this.props.transaction.date).format('LL')}</b>
                 </Card.Meta>
+
+
                 <Card.Description>
                     {this.props.transaction.name}
                 </Card.Description>

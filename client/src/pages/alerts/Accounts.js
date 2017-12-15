@@ -26,7 +26,6 @@ import TopMenu from '../../components/topMenu'
 import bofa from '../../static/images/bofa.png';
 import api from '../../api/api';
 import CustomMessage from "../../components/message/CustomMessage";
-let numeral = require('numeral');
 
 class Accounts extends Component {
 
@@ -87,17 +86,16 @@ class Accounts extends Component {
                                 {account.accountName}
                             </Header.Subheader>
                             <Header.Subheader>
-
                                 Account Number ending in : {account.accountNumber}
                             </Header.Subheader>
                             <Header.Subheader>
                                 Account Type : {account.accountType}
                             </Header.Subheader>
                             <Header.Subheader>
-                                Available Balance: ${numeral(account.availableBalance).format('0.00')}
+                                Available Balance: {account.availableBalance}
                             </Header.Subheader>
                             <Header.Subheader>
-                                Current Balance: ${numeral(account.currentBalance).format('0.00')}
+                                Current Balance: {account.currentBalance}
                             </Header.Subheader>
                         </Header>
                     </Segment>
